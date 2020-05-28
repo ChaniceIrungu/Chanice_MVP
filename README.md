@@ -31,7 +31,16 @@ cd client and run npm start to start client server in development mode with hot 
 Basic Requirements
 
 #STEPS
+[ ] the button in de navBar doesn't works!
 [x] reorganize the DB by adding more fields
-[_] add initial values for 1 apartment
+[x] add initial values for 1 apartment int the 2 tables
 [x] refact the requests in apartments.js
-[x] refact the form
+[ ] check the requests on POSTMAN - falta 1!!
+[ ] put the fetch requests in a separated api file
+[ ] the form works?
+[ ] the form should appear only in the home page
+[ ] in the form: add images functionality
+[ ] styling the form and the home page
+[ ] styling the apartment listç
+[ ] add a new page for each apartment where we can display the images and read all the information
+[ ] Google Map in the Home page?
