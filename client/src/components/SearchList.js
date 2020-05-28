@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import api from "../utils/api";
+
 export default function SearchList(props) {
   const [apartments, setApartments] = useState([]);
   const { search } = useLocation();
-  const getAllApartments = () => {
-    console.log(search);
-    fetch(`/apartments${search}`)
-      .then((response) => response.json())
-      .then((response) => {
-        setApartments(response);
-      });
+
+  const getAllApartments = (search) => {
+    api.getAllApartments(search).then((response) => {
+      setApartments(response);
+    });
   };
+
   useEffect(() => {
     getAllApartments();
   }, [search]);
+
   return (
     <div>
       <ul className="my-3 list-group text-black">

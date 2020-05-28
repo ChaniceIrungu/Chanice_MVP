@@ -31,13 +31,14 @@ cd client and run npm start to start client server in development mode with hot 
 Basic Requirements
 
 #STEPS
-[ ] the button in de navBar doesn't works!
+[ ] the button in de navBar doesn't works! - questions
 [x] reorganize the DB by adding more fields
 [x] add initial values for 1 apartment int the 2 tables
 [x] refact the requests in apartments.js
-[ ] check the requests on POSTMAN - falta 1!!
-[ ] put the fetch requests in a separated api file
+[x] check the requests on POSTMAN - falta 1!!
+[ ] put the fetch requests in a separated api file - questions
 [ ] the form works?
+[ ] add a notification if there are no apartments to show
 [ ] the form should appear only in the home page
 [ ] in the form: add images functionality
 [ ] styling the form and the home page

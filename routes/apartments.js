@@ -33,12 +33,12 @@ router.get("/:id", function (req, res, next) {
     .catch((err) => res.status(500).send(err));
 });
 
-// NOOOOOOOO GET images from one appartment
+// GET images from one appartment
 getImages = (req, res, next) => {
   const { id } = req.params;
   db(`SELECT * FROM images WHERE ap_id = ${id};`)
     .then((results) => {
-      res.send(results.data[0]);
+      res.send(results.data);
     })
     .catch((err) => res.status(500).send(err));
 };
