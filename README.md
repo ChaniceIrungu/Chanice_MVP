@@ -29,3 +29,9 @@ Development
 Run npm start in project directory to start the Express server on port 5000
 cd client and run npm start to start client server in development mode with hot reloading in port 3000.
 Basic Requirements
+
+#STEPS
+[x] reorganize the DB by adding more fields
+[_] add initial values for 1 apartment
+[x] refact the requests in apartments.js
+[x] refact the form
