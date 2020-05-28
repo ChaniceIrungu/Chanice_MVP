@@ -13,6 +13,11 @@ class App extends Component {
       apartments: [],
     };
   }
+  getAllApartments() {
+    api.getAllApartments().then((response) => {
+      this.setState({ apartments: response.data });
+    });
+  }
 
   deleteItem(id) {
     api.deleteItem(id).then((response) => {
@@ -70,13 +75,15 @@ class App extends Component {
               </center>
             </h3>
             ​
-            <SearchForm />​
             <Switch>
               <Route path="/create">
-                <ApartmentForm onAdd={this.onAddApartment} />
+                <ApartmentForm onAddApartment={this.onAddApartment} />
               </Route>
               <Route path="/search">
                 <SearchList />
+              </Route>
+              <Route path="/">
+                <SearchForm />​
               </Route>
             </Switch>
           </div>

@@ -1,44 +1,50 @@
+import axios from "axios";
 const apiRoot = "/";
 
 export default {
-  // POST METHOD from ApartmentForm
-  addApartment: async (flat) => {
-    let response = await fetch(apiRoot, {
+  //GET list apartments
+  getAllApartments: () => {
+    return (axios(`${apiRoot}`),
+    {
+      method: "GET",
+    }).catch(function (error) {
+      console.log(error);
+    });
+  },
+
+  // POST apartment form ApartmentForm
+  addApartment: (flat) => {
+    return axios(`${apiRoot}`, {
       method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({
+      data: {
         location: flat.location,
         numBedrooms: flat.numBedrooms,
         numBathrooms: flat.numBathrooms,
         numParking: flat.numParking,
-        rent_monthly: flat.rent_monthly,
+        monthlyRent: flat.monthlyRent,
         description: flat.description,
-      }),
+      },
+    }).catch(function (error) {
+      console.log(error);
     });
-    return response.json();
   },
 
-  // DELETE METHOD from App how to use id
-  deleteItem: async (id) => {
-    let response = await fetch(apiRoot, {
+  // DELETE an apartment from App
+  deleteItem: (id) => {
+    return (axios(`${apiRoot}/${id}`),
+    {
       method: "DELETE",
-      headers: {
-        "Content-type": "application/json",
-      },
+    }).catch(function (error) {
+      console.log(error);
     });
-    return response.json();
   },
 
-  // GET appartment filtered list by place from SearchList how to use place
-  getAllApartments: async (place) => {
-    let response = await fetch(apiRoot, {
+  // GET appartment filtered list by place from SearchList
+  getAllApartments: (place) => {
+    return axios(`${apiRoot}/${place}`, {
       method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
+    }).catch(function (error) {
+      console.log(error);
     });
-    return response.json();
   },
 };

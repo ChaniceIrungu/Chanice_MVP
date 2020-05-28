@@ -26,7 +26,7 @@ con.connect(function (err) {
       numBedrooms int,
       numBathrooms int, 
       numParking int,
-      rent_monthly int,
+      monthlyRent int,
       description TEXT,
       PRIMARY KEY (id)
     );
@@ -38,7 +38,7 @@ con.connect(function (err) {
       PRIMARY KEY (img_id)
     );
 
-    INSERT INTO apartments (location, numBedrooms, numBathrooms, numParking, rent_monthly, description) VALUES ("Nyali, Mombasa", 3,2,3,18000000,"3 bedroom apartment is on sale at a prime area of Nyali near major shopping malls and international schools.
+    INSERT INTO apartments (location, numBedrooms, numBathrooms, numParking, monthlyRent, description) VALUES ("Nyali, Mombasa", 3,2,3,18000000,"3 bedroom apartment is on sale at a prime area of Nyali near major shopping malls and international schools.
     > 
     > The apartment consists of spacious living room with nice balcony overlooking the nice garden and clean swimming pool. Spacious kitchen, laundry, 3 bedroom one is en suite, tiled floor, modern and strong both interior and exterior.
     > 

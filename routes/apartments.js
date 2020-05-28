@@ -45,18 +45,18 @@ getImages = (req, res, next) => {
 
 router.get("/:id/images", getImages);
 
-// INSERT a new apartment into the DB
+// POST a new apartment into the DB
 router.post("/", function (req, res, next) {
   const {
     location,
     numBedrooms,
     numBathrooms,
     numParking,
-    rent_monthly,
+    monthlyRent,
     description,
   } = req.body;
   db(
-    `INSERT INTO apartments (location, numBedrooms, numBathrooms, numParking, rent_monthly, description) VALUES ("${location}","${numBedrooms}", "${numBathrooms}", "${numParking}","${rent_monthly}", "${description}");`
+    `INSERT INTO apartments (location, numBedrooms, numBathrooms, numParking, monthlyRent, description) VALUES ("${location}","${numBedrooms}", "${numBathrooms}", "${numParking}","${monthlyRent}", "${description}");`
   )
     .then(() => {
       getAllApartments(req, res);

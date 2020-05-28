@@ -18,7 +18,17 @@ export default function SearchList(props) {
 
   return (
     <div>
-      <ul className="my-3 list-group text-black">
+      <div>
+        {apartments.length === 0 && (
+          <div>
+            <i className="fas fa-exclamation-triangle text-light fa-5x my-4"></i>
+            <div className="alert alert-light my-4" role="alert">
+              {`Sorry, there are no apartments to show in ${search}!`}
+            </div>
+          </div>
+        )}
+      </div>
+      <ul>
         {apartments.map((apartment) => (
           <li
             key={apartment.id}

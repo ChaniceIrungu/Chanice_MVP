@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import api from "../utils/api";
 
-export default class apartmentForm extends Component {
+export default class ApartmentForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       location: "",
-      numBedrooms: null,
-      numBathrooms: null,
-      numParking: null,
-      rent_monthly: null,
+      numBedrooms: "",
+      numBathrooms: "",
+      numParking: "",
+      monthlyRent: "",
       description: "",
     };
   }
@@ -27,7 +27,7 @@ export default class apartmentForm extends Component {
       numBedrooms,
       numBathrooms,
       numParking,
-      rent_monthly,
+      monthlyRent,
       description,
     } = this.state;
     const flat = {
@@ -35,7 +35,7 @@ export default class apartmentForm extends Component {
       numBedrooms,
       numBathrooms,
       numParking,
-      rent_monthly,
+      monthlyRent,
       description,
     };
 
@@ -50,7 +50,7 @@ export default class apartmentForm extends Component {
       numBedrooms,
       numBathrooms,
       numParking,
-      rent_monthly,
+      monthlyRent,
       description,
     } = this.state;
     return (
@@ -87,20 +87,20 @@ export default class apartmentForm extends Component {
           onChange={(e) => this.handleInput(e)}
           className="form-control my-2"
         ></input>
-        <div className="input-group my-2">
-          <input type="text" className="form-control"></input>
+        <div className="input-group">
+          <input
+            type="number"
+            name="monthlyRent"
+            value={monthlyRent}
+            placeholder="Monthly rent"
+            onChange={(e) => this.handleInput(e)}
+            className="form-control"
+          ></input>
           <div className="input-group-append">
             <span className="input-group-text w-150">KSh</span>
           </div>
         </div>
-        <input
-          type="number"
-          name="rent_monthly"
-          value={rent_monthly}
-          placeholder="Monthly rent "
-          onChange={(e) => this.handleInput(e)}
-          className="form-control my-2"
-        ></input>
+
         <input
           type="text"
           name="description"
