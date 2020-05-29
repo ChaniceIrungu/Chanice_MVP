@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import api from "../utils/api";
+import ApartmentDisplay from "../components/ApartamentDisplay";
 
 export default function SearchList(props) {
   const [apartments, setApartments] = useState([]);
@@ -29,6 +30,7 @@ export default function SearchList(props) {
           </div>
         )}
       </div>
+      <ApartmentDisplay />
       {/* <ul>
         {apartments.map((apartment) => (
           <li

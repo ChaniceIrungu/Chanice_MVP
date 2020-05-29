@@ -5,7 +5,6 @@ const db = require("../model/helper");
 // GET apartment filtered list by place
 router.get("/", function (req, res, next) {
   const { place } = req.query;
-  // si tinc place
   let query = "";
   if (place)
     query = `SELECT * FROM apartments WHERE location LIKE "%${place}%";`;

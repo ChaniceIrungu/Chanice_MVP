@@ -1,10 +1,15 @@
 body {
-  background-color: lavender;
   background-image: url(https://i.pinimg.com/564x/b9/69/4f/b9694f07a473d74c1703537004b7087e.jpg);
+  background-size: auto 100%;
+  background-repeat: no-repeat;
   font-family: Arial, Helvetica, sans-serif;
-  align-content: center;
 }
 
+.border-card {
+  background-color: lightslategray;
+  border-bottom-right-radius: 5%;
+  border-top-left-radius: 5%;
+}
 .App {
   text-align: center;
 }
