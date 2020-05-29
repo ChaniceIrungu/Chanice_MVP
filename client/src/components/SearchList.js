@@ -6,20 +6,21 @@ export default function SearchList(props) {
   const [apartments, setApartments] = useState([]);
   const { search } = useLocation();
 
-  const getAllApartments = (search) => {
-    api.getAllApartments(search).then((response) => {
+  const getApartmentsFiltered = (search) => {
+    api.getApartmentsFiltered(search).then((response) => {
       setApartments(response);
     });
   };
 
   useEffect(() => {
-    getAllApartments();
+    getApartmentsFiltered();
   }, [search]);
 
   return (
     <div>
+      {console.log(apartments)}
       <div>
-        {apartments.length === 0 && (
+        {!!apartments?.length === 0 && (
           <div>
             <i className="fas fa-exclamation-triangle text-light fa-5x my-4"></i>
             <div className="alert alert-light my-4" role="alert">
@@ -28,7 +29,7 @@ export default function SearchList(props) {
           </div>
         )}
       </div>
-      <ul>
+      {/* <ul>
         {apartments.map((apartment) => (
           <li
             key={apartment.id}
@@ -50,7 +51,7 @@ export default function SearchList(props) {
             </span>
           </li>
         ))}
-      </ul>
+      </ul> */}
     </div>
   );
 }

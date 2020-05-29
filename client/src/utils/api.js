@@ -2,10 +2,9 @@ import axios from "axios";
 const apiRoot = "/";
 
 export default {
-  //GET list apartments
-  getAllApartments: () => {
-    return (axios(`${apiRoot}`),
-    {
+  // GET appartment filtered list by place from SearchList
+  getApartmentsFiltered: (place) => {
+    return axios(`${apiRoot}/${place}`, {
       method: "GET",
     }).catch(function (error) {
       console.log(error);
@@ -39,12 +38,13 @@ export default {
     });
   },
 
-  // GET appartment filtered list by place from SearchList
-  getAllApartments: (place) => {
-    return axios(`${apiRoot}/${place}`, {
-      method: "POST",
-    }).catch(function (error) {
-      console.log(error);
+  // Request made to the backend api
+  // Send formData object
+  postImages: (formData) => {
+    return axios.post("/images", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
     });
   },
 };

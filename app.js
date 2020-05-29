@@ -3,8 +3,8 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+var fileUpload = require("express-fileupload");
 
-var indexRouter = require("./routes/apartments");
 var apartmentsRouter = require("./routes/apartments");
 
 var app = express();
@@ -14,8 +14,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-
-app.use("/", indexRouter);
+app.use(
+  fileUpload({
+    useTempFiles: true,
+    tempFileDir: "./tmp/",
+  })
+);
 //we are deleting the param apartmentsRouter which was initially usersrouter
 app.use("/apartments", apartmentsRouter);
 

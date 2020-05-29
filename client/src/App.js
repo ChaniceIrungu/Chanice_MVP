@@ -13,20 +13,20 @@ class App extends Component {
       apartments: [],
     };
   }
-  getAllApartments() {
-    api.getAllApartments().then((response) => {
+  getApartmentsFiltered() {
+    api.getApartmentsFiltered().then((response) => {
       this.setState({ apartments: response.data });
     });
   }
 
   deleteItem(id) {
     api.deleteItem(id).then((response) => {
-      this.getAllApartments();
+      this.getApartmentsFiltered();
     });
   }
 
-  onAddApartment() {
-    this.getAllApartments();
+  onAddApartment(msg) {
+    console.log(msg);
   }
 
   render() {
@@ -80,7 +80,7 @@ class App extends Component {
                 <ApartmentForm onAddApartment={this.onAddApartment} />
               </Route>
               <Route path="/search">
-                <SearchList />
+                <SearchList apartments={this.state.apartments} />
               </Route>
               <Route path="/">
                 <SearchForm />​

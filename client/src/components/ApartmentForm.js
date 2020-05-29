@@ -11,6 +11,7 @@ export default class ApartmentForm extends Component {
       numParking: "",
       monthlyRent: "",
       description: "",
+      selectedFile: null,
     };
   }
 
@@ -21,6 +22,11 @@ export default class ApartmentForm extends Component {
     });
   };
 
+  onFileChange = (e) => {
+    // Update the state
+    this.setState({ selectedFile: e.target.files[0] });
+  };
+
   addApartment = () => {
     const {
       location,
@@ -29,18 +35,29 @@ export default class ApartmentForm extends Component {
       numParking,
       monthlyRent,
       description,
+      selectedFile,
     } = this.state;
-    const flat = {
-      location,
-      numBedrooms,
-      numBathrooms,
-      numParking,
-      monthlyRent,
-      description,
-    };
 
+    // We create a new FormData called flat
+    const flat = new FormData();
+
+    // Update the formData object
+    flat.append(
+      "imagefile",
+      this.state.selectedFile,
+      this.state.selectedFile.name
+    );
+    flat.append("location", location);
+    flat.append("numBedrooms", numBedrooms);
+    flat.append("numBathrooms", numBathrooms);
+    flat.append("numParking", numParking);
+    flat.append("monthlyRent", monthlyRent);
+    flat.append("description", description);
+    flat.append("images", selectedFile);
+
+    // We call the request
     api.addApartment(flat).then((response) => {
-      this.props.onAddApartment(response);
+      this.props.onAddApartment(response.msg);
     });
   };
 
@@ -109,6 +126,20 @@ export default class ApartmentForm extends Component {
           onChange={(e) => this.handleInput(e)}
           className="form-control my-2"
         ></input>
+        <div className="custom-file">
+          <input
+            type="file"
+            className="form-control custom-file-input my-2"
+            id="validatedCustomFile"
+            onChange={(e) => this.onFileChange(e)}
+          />
+          <label
+            className="custom-file-label text-left"
+            htmlFor="validatedCustomFile"
+          >
+            Choose some images...
+          </label>
+        </div>
         <button
           className="form-control btn btn-primary my-2"
           type="submit"

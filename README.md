@@ -39,7 +39,7 @@ Basic Requirements
 [x] put the fetch requests in a separated api file
 [x] add a notification if there are no apartments to show
 [x] the form should appear only in the home page
-[ ] the form works?
+[x] the form works?
 [ ] in the form: add images functionality
 [ ] Google Map in the Home page?
 [ ] styling the form and the home page
