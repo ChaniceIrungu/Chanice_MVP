@@ -5,12 +5,12 @@ export default class ApartmentForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      location: "",
-      numBedrooms: "",
-      numBathrooms: "",
-      numParking: "",
-      monthlyRent: "",
-      description: "",
+      location: "Nairobi",
+      numBedrooms: 4,
+      numBathrooms: 4,
+      numParking: 4,
+      monthlyRent: 4,
+      description: "abc",
       selectedFile: null,
     };
   }
@@ -42,22 +42,20 @@ export default class ApartmentForm extends Component {
     const flat = new FormData();
 
     // Update the formData object
-    flat.append(
-      "imagefile",
-      this.state.selectedFile,
-      this.state.selectedFile.name
-    );
-    flat.append("location", location);
-    flat.append("numBedrooms", numBedrooms);
-    flat.append("numBathrooms", numBathrooms);
-    flat.append("numParking", numParking);
-    flat.append("monthlyRent", monthlyRent);
-    flat.append("description", description);
+    flat.set("imagefile", this.state.selectedFile.name);
+    flat.set("location", location);
+    flat.set("numBedrooms", numBedrooms);
+    flat.set("numBathrooms", numBathrooms);
+    flat.set("numParking", numParking);
+    flat.set("monthlyRent", monthlyRent);
+    flat.set("description", description);
     flat.append("images", selectedFile);
 
     // We call the request
     api.addApartment(flat).then((response) => {
-      this.props.onAddApartment(response.msg);
+      console.log(response.data);
+      console.log(response);
+      this.props.onAddApartment(response);
     });
   };
 

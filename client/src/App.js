@@ -25,8 +25,8 @@ class App extends Component {
     });
   }
 
-  onAddApartment(msg) {
-    console.log(msg);
+  onAddApartment(response) {
+    console.log(response);
   }
 
   render() {

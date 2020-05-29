@@ -1,5 +1,5 @@
 import axios from "axios";
-const apiRoot = "/";
+const apiRoot = "/apartments";
 
 export default {
   // GET appartment filtered list by place from SearchList
@@ -13,8 +13,11 @@ export default {
 
   // POST apartment form ApartmentForm
   addApartment: (flat) => {
-    return axios(`${apiRoot}`, {
+    return axios(`${apiRoot}`, flat, {
       method: "POST",
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
       data: {
         location: flat.location,
         numBedrooms: flat.numBedrooms,
@@ -22,6 +25,7 @@ export default {
         numParking: flat.numParking,
         monthlyRent: flat.monthlyRent,
         description: flat.description,
+        images: flat.images,
       },
     }).catch(function (error) {
       console.log(error);
@@ -35,16 +39,6 @@ export default {
       method: "DELETE",
     }).catch(function (error) {
       console.log(error);
-    });
-  },
-
-  // Request made to the backend api
-  // Send formData object
-  postImages: (formData) => {
-    return axios.post("/images", formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
     });
   },
 };
