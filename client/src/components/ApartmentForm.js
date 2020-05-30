@@ -49,13 +49,11 @@ export default class ApartmentForm extends Component {
     flat.set("numParking", numParking);
     flat.set("monthlyRent", monthlyRent);
     flat.set("description", description);
-    flat.append("images", selectedFile);
+    flat.append("images", selectedFile.name);
 
     // We call the request
     api.addApartment(flat).then((response) => {
-      console.log(response.data);
-      console.log(response);
-      this.props.onAddApartment(response);
+      this.props.onAddApartment(response.data.msg);
     });
   };
 

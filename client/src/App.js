@@ -1,16 +1,18 @@
 import React, { Component } from "react";
-import ApartmentForm from "./components/ApartmentForm";
-import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import SearchList from "./components/SearchList";
 import api from "./utils/api";
+import "./App.css";
+import SearchList from "./components/SearchList";
+import ApartmentForm from "./components/ApartmentForm";
+import ApartmentDisplay from "./components/ApartamentDisplay";
+import ListAll from "./components/ListAll";
 
-import SearchForm from "./components/SearchForm";
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       apartments: [],
+      msg: "",
     };
   }
   getApartmentsFiltered() {
@@ -25,8 +27,14 @@ class App extends Component {
     });
   }
 
-  onAddApartment(response) {
-    console.log(response);
+  onsetApartments(list) {
+    this.setState({ apartments: list });
+  }
+
+  onAddApartment(msg) {
+    // this doesn't work!
+    // console.log(msg);
+    // this.setState({ msg });
   }
 
   render() {
@@ -51,12 +59,17 @@ class App extends Component {
             <ul className="navbar-nav">
               <li className="nav-item ">
                 <Link to="/search" className="nav-link">
-                  All Apartments
+                  Search apartments
+                </Link>
+              </li>
+              <li className="nav-item ">
+                <Link to="/all" className="nav-link">
+                  Discover all the apartments
                 </Link>
               </li>
               <li className="nav-item ">
                 <Link to="/create" className="nav-link">
-                  List Your apartment
+                  List your apartment
                 </Link>
               </li>
             </ul>
@@ -79,12 +92,16 @@ class App extends Component {
               <Route path="/create">
                 <ApartmentForm onAddApartment={this.onAddApartment} />
               </Route>
+              <Route path="/all">
+                <ListAll apartments={this.state.apartments} />
+              </Route>
+              <Route path="/search/apartment">
+                <ApartmentDisplay apartments={this.state.apartments} />
+              </Route>
               <Route path="/search">
                 <SearchList apartments={this.state.apartments} />
               </Route>
-              <Route path="/">
-                <SearchForm />​
-              </Route>
+              <Route path="/">Home</Route>
             </Switch>
           </div>
         </div>

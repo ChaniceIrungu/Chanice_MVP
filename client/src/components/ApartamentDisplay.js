@@ -7,7 +7,7 @@ export default class ApartamentDisplay extends Component {
         <img
           className="card-img-top my-3"
           src="https://d1052pu3rm1xk9.cloudfront.net/smw_768/931b0d17a0790afc468279913c86af687fc30eb5d73cc42bbe4a9d16.jpg"
-          alt="Card image cap"
+          alt="Error"
         />
         <div className="card-body">
           <div className="row d-flex justify-content-around">
@@ -47,7 +47,7 @@ export default class ApartamentDisplay extends Component {
               <h3 className="align-middle mx-3">2.000 KSh</h3>
             </div>
             <div className="col">
-              <a href="#" className="btn btn-outline-light btn-lg">
+              <a href="/apartments" className="btn btn-outline-light btn-lg">
                 Go to the search
               </a>
             </div>
