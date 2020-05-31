@@ -12,7 +12,6 @@ class App extends Component {
     super(props);
     this.state = {
       apartments: [],
-      msg: "",
     };
   }
   getApartmentsFiltered() {
@@ -29,12 +28,6 @@ class App extends Component {
 
   onsetApartments(list) {
     this.setState({ apartments: list });
-  }
-
-  onAddApartment(msg) {
-    // this doesn't work!
-    // console.log(msg);
-    // this.setState({ msg });
   }
 
   render() {

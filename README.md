@@ -40,7 +40,7 @@ Basic Requirements
 [x] add a notification if there are no apartments to show
 [x] the form should appear only in the home page
 [x] the form works?
-[ ] in the form: add images functionality
+[x] in the form: add images functionality
 [ ] Google Map in the Home page?
 [ ] styling the form and the home page
 [ ] styling the apartment list
