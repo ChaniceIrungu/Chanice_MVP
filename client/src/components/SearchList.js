@@ -58,26 +58,27 @@ export default function SearchList(props) {
               <div className="card">
                 <ul className="container mt-3">
                   {apartments.map((apartment) => (
-                    <li key={apartment.id} className="list-group-item">
-                      <span>
-                        <Link to={`/search/apartment/${apartment.id}`}>
+                    <li
+                      key={apartment.id}
+                      className="list-group-item d-flex justify-content-between"
+                    >
+                      <Link to={`/search/apartment/${apartment.id}`}>
+                        <span>
                           <img
-                            src="../../public/house2.jpg"
-                            alt=""
-                            className="img-fluid"
+                            src="/house2.jpg"
+                            alt="ERROR"
+                            className="img-fluid w-25 mr-5"
                           />
-                          <div>
-                            <i className="fas fa-bed mx-4"></i>
-                            {apartment.numBedrooms}
-                            <i className="fas fa-bath mx-4"></i>
-                            {apartment.numBathrooms}
-                            <i className="fas fa-car mx-4"></i>
-                            {apartment.numParking}
-                            <i className="fas fa-coins mx-4"></i>
-                            {apartment.monthlyRent}
-                          </div>
-                        </Link>
-                      </span>
+                          <i className="fas fa-bed mx-4"></i>
+                          {apartment.numBedrooms}
+                          <i className="fas fa-bath mx-4"></i>
+                          {apartment.numBathrooms}
+                          <i className="fas fa-car mx-4"></i>
+                          {apartment.numParking}
+                          <i className="fas fa-coins mx-4"></i>
+                          {apartment.monthlyRent}
+                        </span>
+                      </Link>
                     </li>
                   ))}
                 </ul>

@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+import ImageToDisplay from "./ImageToDisplay";
 
 export default class ApartamentDisplay extends Component {
   // this doesn't works
-  // state = {
-  //   apartmentToDisplay: null,
-  // };
+  state = {
+    apartmentToDisplay: null,
+    imagesToDisplay: [],
+  };
 
   // componentDidMount() {
   //   const { id } = this.props.match.params;
@@ -17,6 +19,15 @@ export default class ApartamentDisplay extends Component {
   render() {
     return (
       <div className="container border-card">
+        {/* <div className="container">
+          <div className="row mt-2 mb-2">
+            <div className="col-sm-12 text-center">
+              {imagesToDisplay.map((image) => (
+                <ImageToDisplay source={image} key={image} />
+              ))}
+            </div>
+          </div>
+        </div> */}
         <img
           className="card-img-top my-3"
           src="https://d1052pu3rm1xk9.cloudfront.net/smw_768/931b0d17a0790afc468279913c86af687fc30eb5d73cc42bbe4a9d16.jpg"
