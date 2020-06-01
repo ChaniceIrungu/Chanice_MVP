@@ -41,7 +41,8 @@ Basic Requirements
 [x] the form should appear only in the home page
 [x] the form works?
 [x] in the form: add images functionality
+[x] styling the form
+[ ] styling the home page
+[ ] styling the apartment list - FALTEN IMATGES
 [ ] Google Map in the Home page?
-[ ] styling the form and the home page
-[ ] styling the apartment list
 [ ] add a new page for each apartment where we can display the images and read all the information

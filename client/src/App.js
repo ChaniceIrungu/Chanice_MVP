@@ -68,35 +68,28 @@ class App extends Component {
             </ul>
           </div>
         </nav>
-        <div className="container pt-3">
-          <div className="my-3 text-center">
-            <h1>
-              <center>
-                <strong>House Hunting Kenya</strong>
-              </center>
-            </h1>
-            <h3>
-              <center>
-                <strong>Keja Hunting made Easier!!</strong>
-              </center>
-            </h3>
-            ​
-            <Switch>
-              <Route path="/create">
-                <ApartmentForm onAddApartment={this.onAddApartment} />
-              </Route>
-              <Route path="/all">
-                <ListAll apartments={this.state.apartments} />
-              </Route>
-              <Route path="/search/apartment">
-                <ApartmentDisplay apartments={this.state.apartments} />
-              </Route>
-              <Route path="/search">
-                <SearchList apartments={this.state.apartments} />
-              </Route>
-              <Route path="/">Home</Route>
-            </Switch>
-          </div>
+        <div className="d-flex flex-column justify-contents-center align-items-center my-4">
+          <h1 className="title1">Keja hunting made it easier</h1>​
+          <Switch>
+            <Route path="/create">
+              <ApartmentForm onAddApartment={this.onAddApartment} />
+            </Route>
+            <Route path="/all">
+              <ListAll apartments={this.state.apartments} />
+            </Route>
+            <Route path="/search/apartment" component={ApartmentDisplay}>
+              <ApartmentDisplay apartments={this.state.apartments} />
+            </Route>
+            <Route path="/search">
+              <SearchList apartments={this.state.apartments} />
+            </Route>
+            <Route path="/">
+              <div>
+                <h2 className="title2">Let us Guide you Home</h2>
+                <h3 className="title3">Keja Hunting made it Easier</h3>
+              </div>
+            </Route>
+          </Switch>
         </div>
       </Router>
     );

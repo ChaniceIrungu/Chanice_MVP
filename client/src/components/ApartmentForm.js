@@ -122,14 +122,15 @@ export default class ApartmentForm extends Component {
                   <span className="input-group-text w-150">KSh</span>
                 </div>
               </div>
-              <input
+              <textarea
                 type="text"
                 name="description"
                 value={description}
                 placeholder="Add a short description about your flat"
                 onChange={(e) => this.handleInput(e)}
                 className="form-control my-2"
-              ></input>
+                rows="3"
+              ></textarea>
               <div className="custom-file">
                 <input
                   type="file"

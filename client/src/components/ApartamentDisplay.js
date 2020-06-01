@@ -1,6 +1,19 @@
 import React, { Component } from "react";
 
 export default class ApartamentDisplay extends Component {
+  // this doesn't works
+  // state = {
+  //   apartmentToDisplay: null,
+  // };
+
+  // componentDidMount() {
+  //   const { id } = this.props.match.params;
+  //   fetch(`/search/apartment/${id}`).then((response) => {
+  //     console.log(response);
+  //     this.setState(() => ({ apartmentToDisplay: response }));
+  //   });
+  // }
+
   render() {
     return (
       <div className="container border-card">
