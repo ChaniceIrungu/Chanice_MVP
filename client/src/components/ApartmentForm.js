@@ -49,7 +49,7 @@ export default class ApartmentForm extends Component {
     flat.set("numParking", numParking);
     flat.set("monthlyRent", monthlyRent);
     flat.set("description", description);
-    if (selectedFile) flat.append("images", selectedFile.name);
+    if (selectedFile) flat.append("images", selectedFile, selectedFile.name);
 
     // We call the request
     api.addApartment(flat).then((response) => {

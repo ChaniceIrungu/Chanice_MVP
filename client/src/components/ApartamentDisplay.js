@@ -18,7 +18,7 @@ export default function ApartamentDisplay() {
       <div className="container">
         <div className="row mt-2 mb-2">
           <div className="col-sm-12 text-center">
-            <ImageToDisplay />
+            <ImageToDisplay className="" />
           </div>
         </div>
       </div>

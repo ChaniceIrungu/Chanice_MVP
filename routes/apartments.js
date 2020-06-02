@@ -59,31 +59,39 @@ router.post("/", function (req, res, next) {
       //  We look for the last ID that was insertedgit com
       db(`SELECT * FROM apartments ORDER BY id DESC limit 1;`)
         .then((results) => {
+          console.log("Line 62: I'm here");
           // Save it in a variable ap_id
           let ap_id = results.data[0].id;
 
           // POST the images into the DB.
           // Files are available at req.files
-          const { images } = req.files;
-          console.log(images);
+          const {
+            selectedFile,
+          } = req.files; /* Si poso req.files no funciona */
+          console.log("Line 69: " + selectedFile);
+          console.log("Line 70: I'm here");
 
           // Save the extension type and create a unic id name
-          var extension = mime.extension(images.mimetype);
+          var extension = mime.extension(selectedFile.mimetype);
+          console.log("Line 74: " + extension); /* false? */
           var filename = uuidv4() + "." + extension;
+          console.log("Line 76: " + filename);
 
           // The file which is in...
-          var tmp_path = images.tempFilePath;
+          var tmp_path = selectedFile.tempFilePath;
           // we want to move it to...
           var target_path = path.join(__dirname, "../public/img/") + filename;
+          console.log("Line 82: I'm here");
 
           // Move the image
           fs.rename(tmp_path, target_path, function (err) {
             if (err) throw err;
             fs.unlink(tmp_path, function (err) {
               if (err) throw err;
+              console.log("Line 82: I'm here");
 
               db(
-                `INSERT INTO images (ap_id, img) VALUES ("${ap_id}", "${images}");`
+                `INSERT INTO images (ap_id, img) VALUES ("${ap_id}", "${selectedFile}");`
               )
                 .then(() => {
                   res.send({

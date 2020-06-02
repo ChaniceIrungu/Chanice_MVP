@@ -15,8 +15,10 @@ export default function ImageToDisplay() {
   return (
     <div>
       {console.log(imageToDisplay)}
-      {console.log(imageToDisplay[0].img)}
-      <img src={imageToDisplay[0]} />;
+      {console.log(imageToDisplay[0])}
+      {/* {console.log(imageToDisplay[0].img)} */}
+      {/* <img src={imageToDisplay[0].img} alt="Error" />; */}
+      <img src={imageToDisplay[0]} alt="Error" />;
     </div>
   );
 }
