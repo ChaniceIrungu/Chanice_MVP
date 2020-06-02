@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import api from "../utils/api";
 import ImageToDisplay from "./ImageToDisplay";
+import "../App.css";
 
 export default function ApartamentDisplay(props) {
   let { id } = useParams();
@@ -45,7 +46,7 @@ export default function ApartamentDisplay(props) {
         </div>
       </div>
       <img
-        className="card-img-top my-3"
+        className="image1 card-img-top my-3"
         src="https://d1052pu3rm1xk9.cloudfront.net/smw_768/931b0d17a0790afc468279913c86af687fc30eb5d73cc42bbe4a9d16.jpg"
         alt="Error"
       />

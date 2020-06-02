@@ -3,15 +3,18 @@ import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import api from "../utils/api";
 import SearchForm from "./SearchForm";
+import "../App.css";
 
 export default function SearchList(props) {
   const [apartments, setApartments] = useState([]);
   // The useLocation hook returns the location object that represents the current URL. Like a useState that returns a new location whenever the URL changes.
   const { search } = useLocation();
+  // console.log(search);
 
   const getApartmentsFiltered = () => {
+    console.log("The value of search is: " + search);
     api.getApartmentsFiltered(search).then((response) => {
-      setApartments(response.data);
+      setApartments(response);
     });
   };
 
@@ -22,7 +25,7 @@ export default function SearchList(props) {
 
   return (
     <div>
-      <div className="d-flex flex-row">
+      <div className="d-flex flex-row ">
         <div className="col-4">
           <SearchForm className="w-100" />
         </div>
@@ -33,12 +36,12 @@ export default function SearchList(props) {
               <div>
                 <i className="fas fa-exclamation-triangle text-light fa-5x my-4"></i>
                 <div className="alert alert-light my-4" role="alert">
-                  {`Sorry, there are no apartments to show in ${search}!`}
+                  {`Sorry, there are no apartments to show!`}
                 </div>
               </div>
             ) : (
               <div className="card">
-                <ul className="container mt-3">
+                <ul className=" container mt-3">
                   {apartments.map((apartment) => (
                     <li
                       key={apartment.id}

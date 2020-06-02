@@ -6,12 +6,26 @@ const { v4: uuidv4 } = require("uuid");
 var mime = require("mime-types");
 const db = require("../model/helper");
 
+// // GET apartment filtered list by place
+// router.get("/", function (req, res, next) {
+//   const { place } = req.query;
+//   let query = "";
+//   if (place)
+//     query = `SELECT * FROM apartments WHERE location LIKE "%${place}%";`;
+//   else query = `SELECT * FROM apartments;`;
+//   db(query)
+//     .then((results) => {
+//       res.send(results.data);
+//     })
+//     .catch((err) => res.status(500).send(err));
+// });
+
 // GET apartment filtered list by place
 router.get("/", function (req, res, next) {
-  const { place } = req.query;
+  const { place, bedrooms, bathrooms, cars } = req.query;
   let query = "";
-  if (place)
-    query = `SELECT * FROM apartments WHERE location LIKE "%${place}%";`;
+  if (place || bedrooms || bathrooms || cars)
+    query = `SELECT * FROM apartments WHERE location LIKE "${place}" AND numBedrooms LIKE ${bedrooms} AND numBathrooms LIKE ${bathrooms} AND numParking LIKE ${cars};`;
   else query = `SELECT * FROM apartments;`;
   db(query)
     .then((results) => {
@@ -65,9 +79,7 @@ router.post("/", function (req, res, next) {
 
           // POST the images into the DB.
           // Files are available at req.files
-          const {
-            selectedFile,
-          } = req.files; /* Si poso req.files no funciona */
+          const { selectedFile } = req.files;
           console.log("Line 69: " + selectedFile);
           console.log("Line 70: I'm here");
 
@@ -86,20 +98,16 @@ router.post("/", function (req, res, next) {
           // Move the image
           fs.rename(tmp_path, target_path, function (err) {
             if (err) throw err;
-            fs.unlink(tmp_path, function (err) {
-              if (err) throw err;
-              console.log("Line 82: I'm here");
 
-              db(
-                `INSERT INTO images (ap_id, img) VALUES ("${ap_id}", "${selectedFile}");`
-              )
-                .then(() => {
-                  res.send({
-                    msg: `Apartment added correctly!`,
-                  });
-                })
-                .catch((err) => res.status(500).send(err));
-            });
+            db(
+              `INSERT INTO images (ap_id, img) VALUES ("${ap_id}", "${filename}");`
+            )
+              .then(() => {
+                res.send({
+                  msg: `Apartment added correctly!`,
+                });
+              })
+              .catch((err) => res.status(500).send(err));
           });
         })
         .catch((err) => res.status(500).send(err));

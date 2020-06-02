@@ -10,6 +10,12 @@ body {
   height: 100vh;
 }
 
+.image1 {
+  border: 5px solid white;
+  border-bottom-right-radius: 5%;
+  border-top-left-radius: 5%;
+}
+
 .main-container {
   min-height: calc(100% - 56px);
 }

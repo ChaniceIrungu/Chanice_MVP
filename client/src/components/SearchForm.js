@@ -8,30 +8,28 @@ export default function SearchForm(props) {
 
   // The setState function is used to update the state. It accepts a new state value and enqueues a re-render of the component.
   const [place, setPlace] = useState("");
-  const [checkNumBedrooms, setCheckBedrooms] = useState("");
-  const [checkNumBathrooms, setCheckBathrooms] = useState("");
-  const [checkNumParking, setCheckNumParking] = useState("");
+  const [bedrooms, setCheckBedrooms] = useState("");
+  const [bathrooms, setCheckBathrooms] = useState("");
+  const [cars, setCheckNumParking] = useState("");
 
   const performSearch = () => {
-    history.push(`/search?place=${place}`);
-
-    // it doesn't work
-    // this.props.filterApartments(place, checkNumBedrooms, checkNumBathrooms, checkNumParking);
+    history.push(
+      `/search?place=${place}&bedrooms=${bedrooms}&bathrooms=${bathrooms}&cars=${cars}`
+    );
   };
 
   useEffect(() => {
     performSearch();
-  }, [place]);
+  }, [place, bedrooms, bathrooms, cars]);
 
   const handleChange = (e) => {
-    // Assigna valor a la variable place
-    setPlace(e.target.value);
-    setCheckBedrooms(e.target.value);
-    setCheckBathrooms(e.target.value);
-    setCheckNumParking(e.target.value);
-    // console.log(e.target.value);
-    // it doesn't work
-    // this.props.onGrabPlace(e.target.value);
+    // console.log(e.target.name);
+    // Assigna valor a les variables
+    if (e.target.name === "search") setPlace(e.target.value);
+    if (e.target.name === "checkNumBedrooms") setCheckBedrooms(e.target.value);
+    if (e.target.name === "checkNumBathrooms")
+      setCheckBathrooms(e.target.value);
+    if (e.target.name === "checkNumParking") setCheckNumParking(e.target.value);
   };
 
   return (
@@ -57,55 +55,73 @@ export default function SearchForm(props) {
           />
 
           <div>
-            <p className="my-3">Bedrooms</p>
-            <div className="custom-control custom-checkbox">
-              <input
-                type="checkbox"
-                className="custom-control-input"
-                id="checkNumBedrooms"
+            <p className="my-3">Choose your preferences...</p>
+            <div className="input-group mb-3">
+              <div className="input-group-prepend">
+                <label className="input-group-text" htmlFor="checkNumBedrooms">
+                  <i className="fas fa-bed"></i>
+                </label>
+              </div>
+              <select
+                className="custom-select"
                 name="checkNumBedrooms"
-                value={checkNumBedrooms}
+                id="checkNumBedrooms"
+                value={bedrooms}
                 onChange={handleChange}
-              />
-              <label
-                className="custom-control-label"
-                htmlFor="checkNumBedrooms"
               >
-                3
-              </label>
+                <option defaultValue>Choose...</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="3">6 or more</option>
+              </select>
             </div>
-            <p className="my-3">Bathrooms</p>
-            <div className="custom-control custom-checkbox">
-              <input
-                type="checkbox"
-                className="custom-control-input"
-                id="checkNumBathrooms"
+
+            <div className="input-group mb-3">
+              <div className="input-group-prepend">
+                <label className="input-group-text" htmlFor="checkNumBathrooms">
+                  <i className="fas fa-bath"></i>{" "}
+                </label>
+              </div>
+              <select
+                className="custom-select"
                 name="checkNumBathrooms"
-                value={checkNumBathrooms}
+                id="checkNumBathrooms"
+                value={bathrooms}
                 onChange={handleChange}
-              />
-              <label
-                className="custom-control-label"
-                htmlFor="checkNumBathrooms"
               >
-                2
-              </label>
+                <option defaultValue>Choose...</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 or more</option>
+              </select>
             </div>
-            <p className="my-3">Parking space</p>
-            <div className="custom-control custom-checkbox">
-              <input
-                type="checkbox"
-                className="custom-control-input"
-                id="checkNumParking"
+            <div className="input-group mb-3">
+              <div className="input-group-prepend">
+                <label className="input-group-text" htmlFor="checkNumParking">
+                  <i className="fas fa-car"></i>{" "}
+                </label>
+              </div>
+              <select
+                className="custom-select"
                 name="checkNumParking"
-                value={checkNumParking}
+                id="checkNumParking"
+                value={cars}
                 onChange={handleChange}
-              />
-              <label className="custom-control-label" htmlFor="checkNumParking">
-                3
-              </label>
+              >
+                <option defaultValue>Choose...</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 or more</option>
+              </select>
             </div>
-            <p className="my-3">Price</p>
+
             <button
               onClick={(e) => performSearch(e)}
               className="btn btn-primary my-4

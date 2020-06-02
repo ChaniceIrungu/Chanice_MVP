@@ -71,13 +71,13 @@ class App extends Component {
               <ApartmentForm onAddApartment={this.onAddApartment} />
             </Route>
             <Route path="/all">
-              <ListAll apartments={this.state.apartments} />
+              <ListAll />
             </Route>
             <Route path="/apartments/:id" component={ApartmentDisplay}>
               <ApartmentDisplay apartments={this.state.apartments} />
             </Route>
             <Route path="/search">
-              <SearchList apartments={this.state.apartments} />
+              <SearchList />
             </Route>
             <Route path="/">
               <div>
