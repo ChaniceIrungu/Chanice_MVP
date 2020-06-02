@@ -1,5 +1,9 @@
 var express = require("express");
 var router = express.Router();
+var fs = require("fs");
+var path = require("path");
+const { v4: uuidv4 } = require("uuid");
+var mime = require("mime-types");
 const db = require("../model/helper");
 
 // GET apartment filtered list by place
@@ -57,18 +61,38 @@ router.post("/", function (req, res, next) {
         .then((results) => {
           // Save it in a variable ap_id
           let ap_id = results.data[0].id;
-          const { images } = req.body;
+
           // POST the images into the DB.
-          db(
-            `INSERT INTO images (ap_id, img) VALUES ("${ap_id}", "${images}");`
-          )
-            .then((results) => {
-              console.log(`I'm here`);
-              res.send({
-                msg: `Apartment added correctly!`,
-              });
-            })
-            .catch((err) => res.status(500).send(err));
+          // Files are available at req.files
+          const { images } = req.files;
+          console.log(images);
+
+          // Save the extension type and create a unic id name
+          var extension = mime.extension(images.mimetype);
+          var filename = uuidv4() + "." + extension;
+
+          // The file which is in...
+          var tmp_path = images.tempFilePath;
+          // we want to move it to...
+          var target_path = path.join(__dirname, "../public/img/") + filename;
+
+          // Move the image
+          fs.rename(tmp_path, target_path, function (err) {
+            if (err) throw err;
+            fs.unlink(tmp_path, function (err) {
+              if (err) throw err;
+
+              db(
+                `INSERT INTO images (ap_id, img) VALUES ("${ap_id}", "${images}");`
+              )
+                .then(() => {
+                  res.send({
+                    msg: `Apartment added correctly!`,
+                  });
+                })
+                .catch((err) => res.status(500).send(err));
+            });
+          });
         })
         .catch((err) => res.status(500).send(err));
     })

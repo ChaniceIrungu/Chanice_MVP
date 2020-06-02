@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 //https://reacttraining.com/react-router/web/api/Hooks/usehistory
 import { useHistory } from "react-router-dom";
 
@@ -12,11 +12,16 @@ export default function SearchForm(props) {
   const [checkNumBathrooms, setCheckBathrooms] = useState("");
   const [checkNumParking, setCheckNumParking] = useState("");
 
-  const performSearch = (e) => {
+  const performSearch = () => {
     history.push(`/search?place=${place}`);
+
     // it doesn't work
     // this.props.filterApartments(place, checkNumBedrooms, checkNumBathrooms, checkNumParking);
   };
+
+  useEffect(() => {
+    performSearch();
+  }, [place]);
 
   const handleChange = (e) => {
     // Assigna valor a la variable place

@@ -11,26 +11,10 @@ export default function SearchList(props) {
   // const [place, setPlace] = useState("");
 
   const getApartmentsFiltered = () => {
-    api
-      .getApartmentsFiltered(search)
-      .then((response) => {
-        setApartments(response.data);
-      })
-      .then((response) => {
-        // This doesn't works
-        // this.props.onsetApartments(response.data);
-      });
+    api.getApartmentsFiltered(search).then((response) => {
+      setApartments(response.data);
+    });
   };
-
-  // it doesn't work
-  // const onGrabPlace = (place) => {
-  //   setPlace(place);
-  // };
-
-  // it doesn't work
-  // const filterApartments = (place, checkNumBedrooms, checkNumBathrooms, checkNumParking) {
-  //   // use filter()? O guardar variables per poder fer filter a return method?
-  // }
 
   // It's like ComponentDidMount, it accepts a function which can pehuhrform any side effects after every completed render. The second argument is the array of values that the effect depends on.
   useEffect(() => {
@@ -39,7 +23,6 @@ export default function SearchList(props) {
 
   return (
     <div>
-      {/* {console.log(apartments)} */}
       <div className="d-flex flex-row">
         <div className="col-4">
           <SearchForm className="w-100" />
@@ -62,7 +45,7 @@ export default function SearchList(props) {
                       key={apartment.id}
                       className="list-group-item d-flex justify-content-between"
                     >
-                      <Link to={`/search/apartment/${apartment.id}`}>
+                      <Link to={`/apartments/${apartment.id}`}>
                         <span>
                           <img
                             src="/house2.jpg"

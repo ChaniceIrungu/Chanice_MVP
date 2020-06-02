@@ -53,6 +53,7 @@ export default class ApartmentForm extends Component {
 
     // We call the request
     api.addApartment(flat).then((response) => {
+      console.log(response);
       this.setState({ msg: response.data.msg });
     });
   };

@@ -26,10 +26,6 @@ class App extends Component {
     });
   }
 
-  onsetApartments(list) {
-    this.setState({ apartments: list });
-  }
-
   render() {
     return (
       <Router>
@@ -68,7 +64,7 @@ class App extends Component {
             </ul>
           </div>
         </nav>
-        <div className="d-flex flex-column justify-contents-center align-items-center my-4">
+        <div className="main-container d-flex flex-column justify-content-center align-items-center">
           <h1 className="title1">Keja hunting made it easier</h1>​
           <Switch>
             <Route path="/create">
@@ -77,7 +73,7 @@ class App extends Component {
             <Route path="/all">
               <ListAll apartments={this.state.apartments} />
             </Route>
-            <Route path="/search/apartment" component={ApartmentDisplay}>
+            <Route path="/apartments/:id" component={ApartmentDisplay}>
               <ApartmentDisplay apartments={this.state.apartments} />
             </Route>
             <Route path="/search">
