@@ -12,6 +12,14 @@ export default function SearchForm(props) {
   const [bathrooms, setCheckBathrooms] = useState("");
   const [cars, setCheckNumParking] = useState("");
 
+  // const performSearch = () => {
+  //   history.push(`/search?place=${place}`);
+  // };
+
+  // useEffect(() => {
+  //   performSearch();
+  // }, [place]);
+
   const performSearch = () => {
     history.push(
       `/search?place=${place}&bedrooms=${bedrooms}&bathrooms=${bathrooms}&cars=${cars}`

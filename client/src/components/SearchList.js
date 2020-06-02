@@ -9,12 +9,11 @@ export default function SearchList(props) {
   const [apartments, setApartments] = useState([]);
   // The useLocation hook returns the location object that represents the current URL. Like a useState that returns a new location whenever the URL changes.
   const { search } = useLocation();
-  // console.log(search);
+  // const [place, setPlace] = useState("");
 
   const getApartmentsFiltered = () => {
-    console.log("The value of search is: " + search);
     api.getApartmentsFiltered(search).then((response) => {
-      setApartments(response);
+      setApartments(response.data);
     });
   };
 

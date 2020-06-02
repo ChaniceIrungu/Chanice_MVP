@@ -2,12 +2,12 @@ import axios from "axios";
 const apiRoot = "/apartments";
 
 export default {
-  // GET appartment filtered list by place from SearchList
-  // getApartmentsFiltered: (search) => {
-  //   return axios.get(`${apiRoot}/${search}`).catch(function (error) {
-  //     console.log(error);
-  //   });
-  // },
+  // GET all the apartments
+  getAllApartments: () => {
+    return axios.get(`${apiRoot}`).catch(function (error) {
+      console.log(error);
+    });
+  },
 
   // GET appartment filtered list by place from SearchList
   getApartmentsFiltered: (search) => {
