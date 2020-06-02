@@ -3,8 +3,9 @@ import { useParams } from "react-router-dom";
 import api from "../utils/api";
 import ImageToDisplay from "./ImageToDisplay";
 
-export default function ApartamentDisplay() {
+export default function ApartamentDisplay(props) {
   let { id } = useParams();
+  let [apartments, setApartments] = useState({ props });
   let [apartmentToDisplay, setApartmentToDisplay] = useState({});
 
   useEffect(() => {
@@ -16,6 +17,27 @@ export default function ApartamentDisplay() {
   return (
     <div className="container border-card">
       <div className="container">
+        <div className="col d-flex justify-content-between my-4">
+          {console.log(apartments)}
+          {/* {id > 1 && ( */}
+          <a
+            href={`/apartments/${+id--}`}
+            className="btn btn-outline-light btn-lg"
+          >
+            Previous
+          </a>
+          {/* )} */}
+          {/* Hauríem de passar apartments de SearchList  per saber quantes id hi ha*/}
+          {/* {id < 100 && ( */}
+          <a
+            href={`/apartments/${+id++}`}
+            className="btn btn-outline-light btn-lg"
+          >
+            Next
+          </a>
+          {/* )} */}
+        </div>
+
         <div className="row mt-2 mb-2">
           <div className="col-sm-12 text-center">
             <ImageToDisplay className="" />
@@ -65,8 +87,8 @@ export default function ApartamentDisplay() {
             </h3>
           </div>
           <div className="col d-flex justify-content-center">
-            <a href="/apartments" className="btn btn-outline-light btn-lg">
-              Go to the search
+            <a href="/search" className="btn btn-outline-light btn-lg">
+              Go back to the search
             </a>
           </div>
         </div>

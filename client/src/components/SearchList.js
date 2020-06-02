@@ -8,7 +8,6 @@ export default function SearchList(props) {
   const [apartments, setApartments] = useState([]);
   // The useLocation hook returns the location object that represents the current URL. Like a useState that returns a new location whenever the URL changes.
   const { search } = useLocation();
-  // const [place, setPlace] = useState("");
 
   const getApartmentsFiltered = () => {
     api.getApartmentsFiltered(search).then((response) => {
@@ -45,7 +44,10 @@ export default function SearchList(props) {
                       key={apartment.id}
                       className="list-group-item d-flex justify-content-between"
                     >
-                      <Link to={`/apartments/${apartment.id}`}>
+                      <Link
+                        to={`/apartments/${apartment.id}`}
+                        apartments={apartments}
+                      >
                         <span>
                           <img
                             src="/house2.jpg"

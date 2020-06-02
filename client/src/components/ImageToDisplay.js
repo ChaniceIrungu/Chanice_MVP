@@ -3,22 +3,20 @@ import { useParams } from "react-router-dom";
 import api from "../utils/api";
 
 export default function ImageToDisplay() {
-  const [imageToDisplay, setImageToDisplay] = useState([]);
   let { id } = useParams();
+  const [imagesToDisplay, setImageToDisplay] = useState([]);
 
   useEffect(() => {
     api.getOneApartmentImages(id).then((response) => {
-      setImageToDisplay(response.data);
+      console.log(response.data);
+      setImageToDisplay(response.data[0]);
     });
   }, [id]);
 
   return (
     <div>
-      {console.log(imageToDisplay)}
-      {console.log(imageToDisplay[0])}
-      {/* {console.log(imageToDisplay[0].img)} */}
-      {/* <img src={imageToDisplay[0].img} alt="Error" />; */}
-      <img src={imageToDisplay[0]} alt="Error" />;
+      {console.log(imagesToDisplay.img)}
+      <img src={imagesToDisplay.img} alt="Error" />;
     </div>
   );
 }

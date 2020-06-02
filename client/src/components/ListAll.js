@@ -24,7 +24,7 @@ export default function ListAll() {
             key={apartment.id}
             className="list-group-item d-flex justify-content-between"
           >
-            <Link to={`/search/apartment/${apartment.id}`}>
+            <Link to={`apartments/${apartment.id}`}>
               <span>
                 <img
                   src="/house2.jpg"
