@@ -9,15 +9,15 @@ export default function ImageToDisplay() {
   useEffect(() => {
     api.getOneApartmentImages(id).then((response) => {
       console.log(response.data);
-      setImageToDisplay(response.data[0]);
+      setImageToDisplay(response.data[0].img);
     });
   }, [id]);
 
   return (
     <div>
-      {console.log(imagesToDisplay.img)}
+      {console.log(imagesToDisplay)}
       <img
-        src={imagesToDisplay.img}
+        src={imagesToDisplay} /*{`../../public/img/${imagesToDisplay}`}*/
         alt="Error"
         className="image1 card-img-top my-4"
       />

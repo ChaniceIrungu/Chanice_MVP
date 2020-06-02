@@ -65,7 +65,7 @@ class App extends Component {
           </div>
         </nav>
         <div className="main-container d-flex flex-column justify-content-center align-items-center">
-          <h1 className="title1">Keja hunting made it easier</h1>​
+          <h1 className="title1 my-4">Keja hunting made it easier</h1>​
           <Switch>
             <Route path="/create">
               <ApartmentForm onAddApartment={this.onAddApartment} />
