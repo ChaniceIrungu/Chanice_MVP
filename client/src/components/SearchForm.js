@@ -12,23 +12,23 @@ export default function SearchForm(props) {
   const [bathrooms, setCheckBathrooms] = useState("");
   const [cars, setCheckNumParking] = useState("");
 
-  // const performSearch = () => {
-  //   history.push(`/search?place=${place}`);
-  // };
-
-  // useEffect(() => {
-  //   performSearch();
-  // }, [place]);
-
   const performSearch = () => {
-    history.push(
-      `/search?place=${place}&bedrooms=${bedrooms}&bathrooms=${bathrooms}&cars=${cars}`
-    );
+    history.push(`/search?place=${place}`);
   };
 
   useEffect(() => {
     performSearch();
-  }, [place, bedrooms, bathrooms, cars]);
+  }, [place]);
+
+  // const performSearch = () => {
+  //   history.push(
+  //     `/search?place=${place}&bedrooms=${bedrooms}&bathrooms=${bathrooms}&cars=${cars}`
+  //   );
+  // };
+
+  // useEffect(() => {
+  //   performSearch();
+  // }, [place, bedrooms, bathrooms, cars]);
 
   const handleChange = (e) => {
     // console.log(e.target.name);

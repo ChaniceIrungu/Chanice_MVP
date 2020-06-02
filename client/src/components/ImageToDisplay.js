@@ -16,7 +16,12 @@ export default function ImageToDisplay() {
   return (
     <div>
       {console.log(imagesToDisplay.img)}
-      <img src={imagesToDisplay.img} alt="Error" />;
+      <img
+        src={imagesToDisplay.img}
+        alt="Error"
+        className="image1 card-img-top my-4"
+      />
+      ;
     </div>
   );
 }

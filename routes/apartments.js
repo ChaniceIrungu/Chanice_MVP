@@ -6,26 +6,12 @@ const { v4: uuidv4 } = require("uuid");
 var mime = require("mime-types");
 const db = require("../model/helper");
 
-// // GET apartment filtered list by place
-// router.get("/", function (req, res, next) {
-//   const { place } = req.query;
-//   let query = "";
-//   if (place)
-//     query = `SELECT * FROM apartments WHERE location LIKE "%${place}%";`;
-//   else query = `SELECT * FROM apartments;`;
-//   db(query)
-//     .then((results) => {
-//       res.send(results.data);
-//     })
-//     .catch((err) => res.status(500).send(err));
-// });
-
 // GET apartment filtered list by place
 router.get("/", function (req, res, next) {
-  const { place, bedrooms, bathrooms, cars } = req.query;
+  const { place } = req.query;
   let query = "";
-  if (place || bedrooms || bathrooms || cars)
-    query = `SELECT * FROM apartments WHERE location LIKE "${place}" AND numBedrooms LIKE ${bedrooms} AND numBathrooms LIKE ${bathrooms} AND numParking LIKE ${cars};`;
+  if (place)
+    query = `SELECT * FROM apartments WHERE location LIKE "%${place}%";`;
   else query = `SELECT * FROM apartments;`;
   db(query)
     .then((results) => {
@@ -33,6 +19,20 @@ router.get("/", function (req, res, next) {
     })
     .catch((err) => res.status(500).send(err));
 });
+
+// GET apartment filtered list by place
+// router.get("/", function (req, res, next) {
+//   const { place, bedrooms, bathrooms, cars } = req.query;
+//   let query = "";
+//   if (place || bedrooms || bathrooms || cars)
+//     query = `SELECT * FROM apartments WHERE location LIKE "${place}" AND numBedrooms LIKE ${bedrooms} AND numBathrooms LIKE ${bathrooms} AND numParking LIKE ${cars};`;
+//   else query = `SELECT * FROM apartments;`;
+//   db(query)
+//     .then((results) => {
+//       res.send(results.data);
+//     })
+//     .catch((err) => res.status(500).send(err));
+// });
 
 // GET one apartment
 router.get("/:id", function (req, res, next) {

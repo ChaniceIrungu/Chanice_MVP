@@ -5,12 +5,12 @@ export default class ApartmentForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      location: "Nairobi",
-      numBedrooms: 4,
-      numBathrooms: 4,
-      numParking: 4,
-      monthlyRent: 4,
-      description: "abc",
+      location: "",
+      numBedrooms: null,
+      numBathrooms: null,
+      numParking: null,
+      monthlyRent: null,
+      description: "",
       selectedFile: null,
       msg: "",
     };

@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import api from "../utils/api";
 import SearchForm from "./SearchForm";
+import ImageToDisplay from "./ImageToDisplay";
 import "../App.css";
 
 export default function SearchList(props) {
   const [apartments, setApartments] = useState([]);
   // The useLocation hook returns the location object that represents the current URL. Like a useState that returns a new location whenever the URL changes.
   const { search } = useLocation();
-  // const [place, setPlace] = useState("");
+  const [pic, setPic] = useState("");
 
   const getApartmentsFiltered = () => {
     api.getApartmentsFiltered(search).then((response) => {
@@ -21,6 +22,13 @@ export default function SearchList(props) {
   useEffect(() => {
     getApartmentsFiltered();
   }, [search]);
+
+  // this doesn't works
+  // const image = (id) => {
+  //   api.getOneApartmentImages(id).then((response) => {
+  //     setPic(response.data[0].img);
+  //   });
+  // };
 
   return (
     <div>
@@ -51,11 +59,14 @@ export default function SearchList(props) {
                         apartments={apartments}
                       >
                         <span>
+                          {/* <ImageToDisplay id={apartment.id} /> */}
+                          {/* {image(apartment.id)}{" "} */}
                           <img
                             src="/house2.jpg"
                             alt="ERROR"
                             className="img-fluid w-25 mr-5"
                           />
+
                           <i className="fas fa-bed mx-4"></i>
                           {apartment.numBedrooms}
                           <i className="fas fa-bath mx-4"></i>

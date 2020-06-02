@@ -38,13 +38,32 @@ con.connect(function (err) {
       PRIMARY KEY (img_id)
     );
 
-    INSERT INTO apartments (location, numBedrooms, numBathrooms, numParking, monthlyRent, description) VALUES ("Nyali, Mombasa", 3,2,3,18000000,"3 bedroom apartment is on sale at a prime area of Nyali near major shopping malls and international schools.
+    INSERT INTO apartments (location, numBedrooms, numBathrooms, numParking, monthlyRent, description) VALUES ("Mombasa", 3,2,3,18000000,"3 bedroom apartment is on sale at a prime area of Nyali near major shopping malls and international schools.
     > 
     > The apartment consists of spacious living room with nice balcony overlooking the nice garden and clean swimming pool. Spacious kitchen, laundry, 3 bedroom one is en suite, tiled floor, modern and strong both interior and exterior.
     > 
     > The compound is clean, secure, with ample stress free parking, perimeter wall fence, clean swimming pool with nice garden, FULL backup generator for all appliances, centralised Dstv and interment.");
 
-    INSERT INTO images (ap_id, img) VALUES (1, "https://www.buyrentkenya.com/uploadedfiles/16/ce/6f/16ce6f20-02b6-438d-bf2d-4aac7ba3453c.JPG"), (1, "https://www.buyrentkenya.com/uploadedfiles/a3/36/9f/a3369f47-e062-4fb7-ab60-7a1a25d9eb54.JPG"), (1, "https://www.buyrentkenya.com/uploadedfiles/55/a6/59/55a659d5-5bfb-4f78-8a18-f45c964594da.JPG");
+    INSERT INTO images (ap_id, img) VALUES (1, "https://static.apartmentbarcelona.com/mobile/imageWeb/Apartamentos/ID2839/barcelona-apartments-2839-0.jpg");
+
+    INSERT INTO apartments (location, numBedrooms, numBathrooms, numParking, monthlyRent, description) VALUES ("Nairobi", 2,3,1,20000000,"2 bedroom apartment is on sale at a prime area of Nyali near major shopping malls and international schools.
+    > 
+    > The apartment consists of spacious living room with nice balcony overlooking the nice garden and clean swimming pool. Spacious kitchen, laundry, 2 bedroom one is en suite, tiled floor, modern and strong both interior and exterior.
+    > 
+    > The compound is clean, secure, with ample stress free parking, perimeter wall fence, clean swimming pool with nice garden, FULL backup generator for all appliances, centralised Dstv and interment.");
+
+    INSERT INTO images (ap_id, img) VALUES (2, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpTOHMb5IUl9K7HaDYRcTZhZCm27KenaIXfL6w29FnMbXGb1EMsA&s");
+
+    INSERT INTO apartments (location, numBedrooms, numBathrooms, numParking, monthlyRent, description) VALUES ("Lodwar", 4,2,2,25000000,"4 bedroom apartment is on sale at a prime area of Nyali near major shopping malls and international schools.
+    > 
+    > The apartment consists of spacious living room with nice balcony overlooking the nice garden and clean swimming pool. Spacious kitchen, laundry, 4 bedroom one is en suite, tiled floor, modern and strong both interior and exterior.
+    > 
+    > The compound is clean, secure, with ample stress free parking, perimeter wall fence, clean swimming pool with nice garden, FULL backup generator for all appliances, centralised Dstv and interment.");
+
+    INSERT INTO images (ap_id, img) VALUES (3, "https://img.freepik.com/free-photo/luxurious-living-room-loft-villa-apartment-penthouse_41487-669.jpg?size=626&ext=jpg");
+
+
+
 
     
     `;
