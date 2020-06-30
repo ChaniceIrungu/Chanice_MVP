@@ -51,10 +51,12 @@ export default function SearchForm(props) {
 
         <div className="card-body">
           <h5 className="card-title">
-            <strong>Find A House</strong>
+            <strong>Find A House/Tafuta Keja Hapa</strong>
           </h5>
 
-          <p className="card-text">Search. See. Love. </p>
+          <p className="card-text">
+            Search for your ideal house by the click of a button!!{" "}
+          </p>
           <input
             name="search"
             value={place}
@@ -63,7 +65,7 @@ export default function SearchForm(props) {
           />
 
           <div>
-            <p className="my-3">Choose your preferences...</p>
+            <p className="my-3">Fsilter by ...</p>
             <div className="input-group mb-3">
               <div className="input-group-prepend">
                 <label className="input-group-text" htmlFor="checkNumBedrooms">
@@ -77,7 +79,7 @@ export default function SearchForm(props) {
                 value={bedrooms}
                 onChange={handleChange}
               >
-                <option defaultValue>Choose...</option>
+                <option defaultValue>Number of Bedrooms</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -100,7 +102,7 @@ export default function SearchForm(props) {
                 value={bathrooms}
                 onChange={handleChange}
               >
-                <option defaultValue>Choose...</option>
+                <option defaultValue>No. of bathrooms</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -121,7 +123,7 @@ export default function SearchForm(props) {
                 value={cars}
                 onChange={handleChange}
               >
-                <option defaultValue>Choose...</option>
+                <option defaultValue>Parking space per house</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>

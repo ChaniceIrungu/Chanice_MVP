@@ -1,11 +1,13 @@
 # my-first-MVP
 
-##Full Stack Development mvp
+## Full Stack Development mvp
 
 BUILD YOUR FIRST full stack app using React, Node/Express, and MySQL.
 
-##Setup
-###Dependencies
+## Setup
+
+### Dependencies
+
 Run npm install in project directory. This will install server-related dependencies such as express.
 cd client and run npm install. This will install client dependencies (React).
 Database Prep

@@ -62,9 +62,9 @@ export default function SearchList(props) {
                           {/* <ImageToDisplay id={apartment.id} /> */}
                           {/* {image(apartment.id)}{" "} */}
                           <img
-                            src="/house2.jpg"
+                            src="/house3.jpg"
                             alt="ERROR"
-                            className="img-fluid w-25 mr-5"
+                            className="img-fluid w-20 mr-10"
                           />
 
                           <i className="fas fa-bed mx-4"></i>
